@@ -48,9 +48,9 @@ public class TableThucTap extends AbstractTableModel {
             case 5:
                 return ds.get(rowIndex).getThoiGianTT()+" tháng";
             case 6:
-                return ds.get(rowIndex).getGVLienHe().getTenGV();
+                return ds.get(rowIndex).getGVLienHe().getHoTen();
             case 7:
-                return ds.get(rowIndex).getGVLienHe().getSoDienThoai();
+                return ds.get(rowIndex).getGVLienHe().getSdt();
             default:
                 return null;
         }
