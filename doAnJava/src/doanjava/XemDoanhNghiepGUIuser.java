@@ -7,11 +7,14 @@ package doanjava;
 import ClassSource.SinhVien;
 import ClassSource.DoanhNghiep;
 import ClassSource.GiaoVien;
+import java.awt.Image;
+import java.net.URL;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
-
 /**
  *
  * @author Admin
@@ -28,15 +31,17 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
         initComponents();
         jButton2.setVisible(false);
         GiaoVien gv = new GiaoVien("gv01", "nguyễn thị hồng", "098231213");
-        ArrayList<SinhVien> dssv = new ArrayList<SinhVien>();
+        ArrayList<SinhVien> dssv = new ArrayList<>();
         dssv.add(new SinhVien("sv03"));
         dssv.add(new SinhVien("sv01"));
 //         DoanhNghiep dn = new DoanhNghiep("", "", "", 26, 4, gv, dssv);
         DoanhNghiep dn1 = new DoanhNghiep("dn01", "Công Ty Cổ Phần Đào Tạo Quản Lý Trực Tuyến Omt", "Tòa nhà 791 Building số 27-31/59 Láng Hạ, quận Ba Đình, Hà Nội", 26, 4, gv, dssv);
 //        ds.add(dn);
+        DoanhNghiep dn2 = new DoanhNghiep("dn02", "Công Ty Cổ Phần Đào Tạo Quản Lý Trực Tuyến Omt", "Tòa nhà 791 Building số 27-31/59 Láng Hạ, quận Ba Đình, Hà Nội", 26, 4, gv, dssv);
         ds1.add(dn1);
         ds1.add(dn1);
         ds1.add(dn1);
+        ds1.add(dn2);
         TableColumnModel t = null;
         jTable3.setModel(new TableThucTap(ds1));
         jTable2.setModel(new TableThucTap(ds));
@@ -117,6 +122,7 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
         txt_search = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        btReset = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -237,6 +243,7 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jButton5.setText("Tìm kiếm");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,6 +258,14 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        btReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/reset_icon.png"))); // NOI18N
+        btReset.setMargin(new java.awt.Insets(2, 6, 2, 6));
+        btReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btResetActionPerformed(evt);
             }
         });
 
@@ -283,7 +298,7 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(jLabel7)
                                     .addGap(924, 924, 924))
@@ -293,6 +308,8 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
                                     .addComponent(txt_search, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(29, 29, 29)
                                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btReset, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(jButton7))
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -321,15 +338,16 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
                     .addComponent(jButton7)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_search, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
-                            .addComponent(jButton5))
-                        .addGap(6, 6, 6)))
+                            .addComponent(btReset, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(16, 16, 16)))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -357,11 +375,13 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
             }
         }
         if(dsTim.isEmpty()){
-            JOptionPane.showMessageDialog(rootPane, "Không tìm thấy mã doanh nghiệp", "Thông Báo", JOptionPane.QUESTION_MESSAGE);
+            jTable3.setModel(new TableThucTap(new ArrayList<DoanhNghiep>()));
+            JOptionPane.showMessageDialog(rootPane, "Không tìm thấy mã doanh nghiệp", "Thông Báo", JOptionPane.OK_OPTION);
         }else{
-        TimKiemGUI tkGUI = new TimKiemGUI();
-        tkGUI.setVisible(true);
-        tkGUI.loadModel(dsTim);
+//        TimKiemGUI tkGUI = new TimKiemGUI();
+//        tkGUI.setVisible(true);
+//        tkGUI.loadModel(dsTim);
+         jTable3.setModel(new TableThucTap(dsTim));
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -408,6 +428,12 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btResetActionPerformed
+        txt_search.setText("");
+        jTable3.setModel(new TableThucTap(ds1));
+        
+    }//GEN-LAST:event_btResetActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -447,6 +473,7 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btReset;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;

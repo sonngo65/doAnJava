@@ -19,7 +19,7 @@ import javax.swing.table.TableColumnModel;
 public class XemDoanhNghiepGUIAD1 extends javax.swing.JFrame {
 
     ArrayList<DoanhNghiep> ds = new ArrayList<DoanhNghiep>();
-   
+    ArrayList<DoanhNghiep> ds1 = new ArrayList<DoanhNghiep>();
 
     /**
      * Creates new form XemDoanhNghiepGUI
