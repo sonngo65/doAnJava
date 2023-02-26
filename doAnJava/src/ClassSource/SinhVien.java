@@ -13,6 +13,7 @@ import java.util.Objects;
  */
 public class SinhVien extends Nguoi implements Serializable {
 
+    private static final long serialVersionUID = 1113799434508676095L;
     private String maSV;
     private String ngaySinh;
     private String lop;
@@ -36,11 +37,6 @@ public class SinhVien extends Nguoi implements Serializable {
         this.maDN = maDN;
     }
 
-
-
-    
-
-   
     public String getMaSV() {
         return maSV;
     }

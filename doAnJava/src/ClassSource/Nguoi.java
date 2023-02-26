@@ -10,10 +10,12 @@ import java.io.Serializable;
  *
  * @author Admin
  */
-public class Nguoi implements Serializable{
+public class Nguoi implements Serializable {
+
     protected String hoTen;
     protected String sdt;
     protected boolean isAD;
+    private static final long serialVersionUID = 1113799434508676095L;
 
     public Nguoi() {
     }
@@ -30,4 +32,3 @@ public class Nguoi implements Serializable{
         this.isAD = isAD;
     }
 }
-

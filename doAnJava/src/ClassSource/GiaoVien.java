@@ -12,8 +12,10 @@ import java.util.Objects;
  * @author Admin
  */
 public class GiaoVien extends Nguoi implements Serializable {
+
     private String maGV;
     private String email;
+    private static final long serialVersionUID = 1113799434508676095L;
 
     public GiaoVien(String maGV, String email, String hoTen, String sdt) {
         super(hoTen, sdt);
@@ -54,7 +56,6 @@ public class GiaoVien extends Nguoi implements Serializable {
     public String getSdt() {
         return sdt;
     }
-  
 
     public String getMaGV() {
         return maGV;
@@ -82,5 +83,9 @@ public class GiaoVien extends Nguoi implements Serializable {
         return Objects.equals(this.maGV, other.maGV);
     }
 
-   
+    @Override
+    public String toString() {
+        return hoTen;
+    }
+
 }

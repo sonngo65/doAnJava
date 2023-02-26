@@ -5,6 +5,7 @@
 package doanjava;
 
 import ClassSource.DoanhNghiep;
+import ClassSource.SinhVien;
 import java.util.ArrayList;
 
 /**
@@ -19,8 +20,8 @@ public class TimKiemGUI extends javax.swing.JFrame {
     public TimKiemGUI() {
         initComponents();
     }
-    public void loadModel(ArrayList<DoanhNghiep> ds){
-        jTable2.setModel( new TableThucTap(ds));
+    public void loadModel(ArrayList<SinhVien> sv){
+        jTable2.setModel( new TableSinhVien(sv));
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -56,7 +57,7 @@ public class TimKiemGUI extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 102, 255));
-        jLabel1.setText("Danh Sách Tìm Kiếm");
+        jLabel1.setText("Danh Sách Sinh Viên");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

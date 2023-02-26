@@ -76,11 +76,9 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Quản lý thực tập doanh nghiệp");
 
-        jLabel3.setText("Tên đănng nhập:");
+        jLabel3.setText("Tên đăng nhập:");
 
         jLabel4.setText("Mật khẩu:");
-
-        jPasswordField1.setPreferredSize(new java.awt.Dimension(64, 22));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
