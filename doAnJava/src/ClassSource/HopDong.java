@@ -36,9 +36,8 @@ public class HopDong {
     public HopDong() {
     }
 
-    public HopDong(String maHD, Date ngayLap, DoanhNghiep DN, SinhVien SV) {
-        this.maHD = maHD;
-        this.ngayLap = ngayLap;
+    public HopDong( DoanhNghiep DN, SinhVien SV) {
+
         this.DN = DN;
         this.SV = SV;
     }
@@ -61,32 +60,32 @@ public class HopDong {
 
     public String xuatHopDong() {
         String hd = "";
-        hd += "                                                         CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n\n";
-        hd += "                                                              Độc lập – Tự do – Hạnh phúc \n\n";
-        hd += "                                                                 HỢP ĐỒNG THỰC TẬP SINH \n\n";
-        hd += "                                                                     Số: " + this.maHD + "/HĐTTS \n\n";
-        hd += "Hợp đồng thực tập sinh (Sau đây gọi tắt là “Hợp đồng”) này được lập ngày " + this.ngayLap.getDate() + " tháng " + (this.ngayLap.getMonth() + 1) + "  năm " + (this.ngayLap.getYear() + 1900) + "\ngiữa các bên sau đây:\n";
-        hd += "BÊN A: BÊN TUYỂN DỤNG THỰC TẬP SINH\n\n";
-        hd += "Mã doanh nghiệp: " + DN.getMaDN() + "\nTên doanh nghiệp: " + DN.getTenDN() + "\nĐịa chỉ doanh nghiệp: " + DN.getDiaChiDN() + "\n";
-        hd += "BÊN B: BÊN THỰC TẬP SINH\n\n";
-        hd += "ÔNG/BÀ: \nSinh ngày: \nNơi ở hiện tại: … \nSố điện thoại: … \n\n";
-        hd += "ĐIỀU 1. ĐỐI TƯỢNG CỦA HỢP ĐỒNG\n"
+        hd += "                                                                             CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n\n";
+        hd += "                                                                                      Độc lập – Tự do – Hạnh phúc \n\n";
+        hd += "                                                                                      HỢP ĐỒNG THỰC TẬP SINH \n\n";
+        hd += "                                                                                            Số: " + "hd2342" + "/HĐTTS \n\n";
+        hd += "\tHợp đồng thực tập sinh (Sau đây gọi tắt là “Hợp đồng”) này được lập ngày " + this.ngayLap.getDate() + " tháng " + (this.ngayLap.getMonth() + 1) + "  năm " + (this.ngayLap.getYear() + 1900) + "\n\tgiữa các bên sau đây:\n";
+        hd += "\tBÊN A: BÊN TUYỂN DỤNG THỰC TẬP SINH\n\n";
+        hd += "\tMã doanh nghiệp: " + DN.getMaDN() + "\n\tTên doanh nghiệp: " + DN.getTenDN() + "\n\tĐịa chỉ doanh nghiệp: " + DN.getDiaChiDN() + "\n";
+        hd += "\tBÊN B: BÊN THỰC TẬP SINH\n\n";
+        hd += "\tÔNG/BÀ: "+SV.getHoTen()+" \n\tSinh ngày: "+SV.getNgaySinh()+ " \n\tSố điện thoại: "+SV.getSdt()+" \n\n";
+        hd += "\tĐIỀU 1. ĐỐI TƯỢNG CỦA HỢP ĐỒNG\n"
                 + "\n"
-                + "Công ty tuyển dụng Ông/Bà… vào vị trí thực tập sinh với thời gian và chế độ thực tập được quy định tạiĐiều 2 và Điều 3 của Hợp đồng này.\n"
-                + "ĐIỀU 2. THỜI GIAN THỰC TẬP\n"
+                + "\tCông ty tuyển dụng Ông/Bà "+SV.getHoTen()+" vào vị trí thực tập sinh với thời gian và chế độ thực tập\n\tđược quy định tạiĐiều 2 và Điều 3 của Hợp đồng này.\n"
+                + "\tĐIỀU 2. THỜI GIAN THỰC TẬP\n"
                 + "\n"
-                + "+ Sáng từ: 8giờ đến 12giờ.\n"
+                + "\t+ Sáng từ: 8giờ đến 12giờ.\n"
                 + "\n"
-                + "+ Chiều từ:2giờ đến 6giờ.\n"
+                + "\t+ Chiều từ:2giờ đến 6giờ.\n"
                 + "\n"
-                + "ĐIỀU 3. CHI PHÍ TRỢ CẤP, PHƯƠNG THỨC THANH TOÁN, THỜI HẠN THANH TOÁN TRỢ CẤP\n"
+                + "\tĐIỀU 3. CHI PHÍ TRỢ CẤP, PHƯƠNG THỨC THANH TOÁN, THỜI HẠN THANH TOÁN TRỢ CẤP\n"
                 + "\n"
-                + "3.1 Chi phí trợ cấp:\n"
+                + "\t3.1 Chi phí trợ cấp:\n"
                 + "\n"
-                + "Thực tập sinh được trả trợ cấp trong quá trình thực tập là: 3.000.000 vnd/tháng.\n\n"
-                + "       BÊN B                                                                          BÊN A\n\n"
-        
-                + "(Ký và ghi rõ họ tên)                                                   (Ký, đóng dấu và ghi rõ họ tên)\n"
+                + "\tThực tập sinh được trả trợ cấp trong quá trình thực tập là: 3.000.000 vnd/tháng.\n\n"
+                + "                                            BÊN B                                                                               BÊN A\n\n"
+         
+                + "                                    (Ký và ghi rõ họ tên)                                                   (Ký, đóng dấu và ghi rõ họ tên)\n"
                 
                 + "" ;
         return hd;

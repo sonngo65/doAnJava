@@ -28,6 +28,15 @@ public class DoanhNghiep implements Serializable {
         return SVDangKy;
     }
 
+    public DoanhNghiep(String maDN, String tenDN, String diaChiDN, int soLuong, int thoiGianTT, GiaoVien GVLienHe) {
+        this.maDN = maDN;
+        this.tenDN = tenDN;
+        this.diaChiDN = diaChiDN;
+        this.soLuong = soLuong;
+        this.thoiGianTT = thoiGianTT;
+        this.GVLienHe = GVLienHe;
+    }
+
     public DoanhNghiep(String maDN, String tenDN, String diaChiDN, int soLuong, int thoiGianTT, GiaoVien GVLienHe, ArrayList<SinhVien> SVDangKy) {
         this.maDN = maDN;
         this.tenDN = tenDN;
@@ -147,7 +156,7 @@ public class DoanhNghiep implements Serializable {
           ArrayList<SinhVien> dssv1 = new ArrayList<SinhVien>();
             ArrayList<SinhVien> dssv2 = new ArrayList<SinhVien>();
               ArrayList<SinhVien> dssv3 = new ArrayList<SinhVien>();
-        dssv.add(new SinhVien("2020600233", "20-01-2002", "CNTT01", "Công Nghệ Thông Tin", "DN1102", "Ngô Văn Anh", "0877867223"));
+//        dssv.add(new SinhVien("2020600233", "20-01-2002", "CNTT01", "Công Nghệ Thông Tin", "DN1102", "Ngô Văn Anh", "0877867223"));
         dssv2.add(new SinhVien("2019530145", "01-08-2001", "CNTT02", "Công Nghệ Thông Tin", "DN0424", "Nguyễn Thị Hoa", "0918205323"));
         dssv1.add(new SinhVien("2019620423", "06-06-2001", "CNTT04", "Công Nghệ Thông Tin", "DN0243", "Nguyễn Văn Quyết", "0832231232"));
         dssv3.add(new SinhVien("2019574274", "20-07-2001", "KHMT01", "Công Nghệ Thông Tin", "DN0506", "Trần Thanh Hải", "0877867223"));

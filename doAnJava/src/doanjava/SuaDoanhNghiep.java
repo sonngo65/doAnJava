@@ -10,29 +10,39 @@ import ClassSource.GiaoVien;
 import ClassSource.DoanhNghiep;
 import ClassSource.SinhVien;
 import DBEngine.DBEngine;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
  * @author Asus
  */
-public class themDoanhNghiep extends javax.swing.JFrame {
+public class SuaDoanhNghiep extends javax.swing.JFrame {
 
     DBEngine db = new DBEngine();
     ArrayList<GiaoVien> dsGV = (ArrayList<GiaoVien>) db.docFile("GiaoVien.txt");
     ArrayList<DoanhNghiep> dsDN = (ArrayList<DoanhNghiep>) db.docFile("DoanhNghiep.txt");
+    int dongChon = -1;
     XemDoanhNghiepGUIAD1 ad = null;
-    public themDoanhNghiep() {
+    public SuaDoanhNghiep() {
         initComponents();
-        loadModel();
+        
     }
 
     private void loadModel() {
-        for (GiaoVien i : dsGV) {
-            cbGiaoVien.addItem(i.getHoTen());
-        }
+        cbGiaoVien.setModel(new DefaultComboBoxModel(dsGV.toArray()));
+        txtMaDN.setText(dsDN.get(dongChon).getMaDN());
+        txtTenDN.setText(dsDN.get(dongChon).getTenDN());
+        txtDiaChi.setText(dsDN.get(dongChon).getDiaChiDN());
+        txtSoLuong.setText(dsDN.get(dongChon).getSoLuong() + "");
+        txtThoiGian.setText(dsDN.get(dongChon).getThoiGianTT()+"");
+        cbGiaoVien.setSelectedItem(dsDN.get(dongChon).getGVLienHe());
+        
     }
-    public void loadAD(XemDoanhNghiepGUIAD1 a){
+    
+    public void loadAD(XemDoanhNghiepGUIAD1 a,int chon){
         ad=a;
+        dongChon = chon;
+        loadModel();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -69,11 +79,11 @@ public class themDoanhNghiep extends javax.swing.JFrame {
         jLabel3.setText("Địa chỉ");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel4.setText("THÊM DOANH NGHIỆP");
+        jLabel4.setText("SỬA DOANH NGHIỆP");
 
         btThem.setBackground(new java.awt.Color(204, 204, 204));
         btThem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btThem.setText("Thêm mới");
+        btThem.setText("Sửa");
         btThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btThemActionPerformed(evt);
@@ -220,17 +230,14 @@ public class themDoanhNghiep extends javax.swing.JFrame {
                 }
             }
             try {
-                ArrayList<SinhVien> dssv = new ArrayList<SinhVien>();
+                ArrayList<SinhVien> dssv = dsDN.get(dongChon).getSVDangKy();
                 newDN = new DoanhNghiep(maDN, tenDN, diaChi, Integer.parseInt(soLuongSV), Integer.parseInt(thoiGian), giaoVien, dssv);
-                if (dsDN.contains(newDN)) {
-                   
-                    JOptionPane.showConfirmDialog(this, "Mã doanh nghiệp đã tồn tại", "Thông báo", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-                } else {
-                    dsDN.add(newDN);
-                    db.luuFile("DoanhNghiep.txt", dsDN);
+               
+                    dsDN.set(dongChon,newDN);
+                    db.updateDoanhNGhiep(newDN);
                     ad.afterModify(dsDN);
-                    JOptionPane.showConfirmDialog(this, "Thêm thành công", "Thông báo", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
-                }
+                    JOptionPane.showConfirmDialog(this, "Sửa thành công", "Thông báo", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                
             } catch (NumberFormatException e) {
                 JOptionPane.showConfirmDialog(this, "Lỗi dịnh dạng", "Thông báo", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             }
@@ -256,14 +263,26 @@ public class themDoanhNghiep extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(themDoanhNghiep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SuaDoanhNghiep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(themDoanhNghiep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SuaDoanhNghiep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(themDoanhNghiep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SuaDoanhNghiep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(themDoanhNghiep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SuaDoanhNghiep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -272,7 +291,7 @@ public class themDoanhNghiep extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new themDoanhNghiep().setVisible(true);
+                new SuaDoanhNghiep().setVisible(true);
             }
         });
     }

@@ -5,6 +5,7 @@
 package DBEngine;
 
 import ClassSource.DoanhNghiep;
+import ClassSource.SinhVien;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -53,4 +54,17 @@ public class DBEngine {
             e.printStackTrace();
         }
     }
+    public void updateSinhVien(SinhVien sv){
+            ArrayList<SinhVien> ds = (ArrayList<SinhVien>) docFile("SinhVien.txt");
+            ds.set(ds.indexOf(sv),sv);
+              luuFile("SinhVien.txt", ds);
+    }
+    public void updateDoanhNGhiep(DoanhNghiep dn){
+        
+        
+        ArrayList<DoanhNghiep> ds = (ArrayList<DoanhNghiep>) docFile("DoanhNghiep.txt");
+        ds.set(ds.indexOf(dn), dn);
+        luuFile("DoanhNghiep.txt",ds);
+    }
+    
 }

@@ -4,14 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/F:/RootJava/doAnJava/doAnJava/src/doanjava/MainGUI.java</file>
-            <file>file:/F:/RootJava/doAnJava/doAnJava/src/doanjava/XemDoanhNghiepGUIuser.java</file>
             <file>file:/F:/RootJava/doAnJava/doAnJava/src/doanjava/TimKiemGUI.java</file>
+            <file>file:/F:/RootJava/doAnJava/doAnJava/src/doanjava/XemDoanhNghiepGUIuser.java</file>
+            <file>file:/F:/RootJava/doAnJava/doAnJava/src/doanjava/HopDongGUI.java</file>
             <file>file:/F:/RootJava/doAnJava/doAnJava/src/ClassSource/SinhVien.java</file>
-            <file>file:/F:/RootJava/doAnJava/doAnJava/src/doanjava/TableSinhVien.java</file>
-            <file>file:/F:/RootJava/doAnJava/doAnJava/src/doanjava/themDoanhNghiep.java</file>
-            <file>file:/F:/RootJava/doAnJava/doAnJava/src/doanjava/TableThucTap.java</file>
+            <file>file:/F:/RootJava/doAnJava/doAnJava/src/doanjava/SuaDoanhNghiep.java</file>
+            <file>file:/F:/RootJava/doAnJava/doAnJava/src/ClassSource/HopDong.java</file>
             <file>file:/F:/RootJava/doAnJava/doAnJava/src/ClassSource/DoanhNghiep.java</file>
             <file>file:/F:/RootJava/doAnJava/doAnJava/src/doanjava/XemDoanhNghiepGUIAD1.java</file>
+            <file>file:/F:/RootJava/doAnJava/doAnJava/src/DBEngine/DBEngine.java</file>
         </group>
     </open-files>
 </project-private>

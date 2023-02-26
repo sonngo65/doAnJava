@@ -25,6 +25,7 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
 
     DBEngine db = new DBEngine();
     SinhVien sv = new SinhVien();
+    ArrayList<SinhVien> dssv = (ArrayList<SinhVien>)db.docFile("SinhVien.txt");
     ArrayList<DoanhNghiep> ds = new ArrayList<DoanhNghiep>();
     ArrayList<DoanhNghiep> ds1 = new ArrayList<DoanhNghiep>();
 
@@ -506,6 +507,8 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
                 ds.add(ds1.get(dongchon));
                 ds1.get(dongchon).getSVDangKy().add(sv);
                 sv.setMaDN(ds1.get(dongchon).getMaDN());
+                db.updateSinhVien(sv);
+                db.updateDoanhNGhiep(ds1.get(dongchon));
             }
 
             loadModel();
@@ -530,7 +533,12 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
            
             for(DoanhNghiep dn : ds1){
                 if(dn.getMaDN().equals(sv.getMaDN())){
+                    
                     dn.getSVDangKy().remove(sv);
+                    sv.setMaDN("");
+                    db.updateDoanhNGhiep(dn);
+                    db.updateSinhVien(sv);
+                    break;
                 }
             }
              ds.remove(0);
