@@ -25,7 +25,7 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
 
     DBEngine db = new DBEngine();
     SinhVien sv = new SinhVien();
-    ArrayList<SinhVien> dssv = (ArrayList<SinhVien>)db.docFile("SinhVien.txt");
+    ArrayList<SinhVien> dssv = (ArrayList<SinhVien>) db.docFile("SinhVien.txt");
     ArrayList<DoanhNghiep> ds = new ArrayList<DoanhNghiep>();
     ArrayList<DoanhNghiep> ds1 = new ArrayList<DoanhNghiep>();
 
@@ -39,14 +39,12 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
             jButton2.setVisible(false);
         }
 
- 
-     
     }
 
     private void loadModel() {
         jTable2.setModel(new TableThucTap(ds));
         jTable3.setModel(new TableThucTap(ds1));
-           for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8; i++) {
 
             switch (i) {
                 case 0:
@@ -97,7 +95,7 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
             jButton2.setVisible(true);
         }
     }
-   
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -504,15 +502,18 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
         int dongchon = jTable3.getSelectedRow();
         if (ds.size() < 1) {
             if (dongchon >= 0) {
-                ds.add(ds1.get(dongchon));
-                ds1.get(dongchon).getSVDangKy().add(sv);
-                sv.setMaDN(ds1.get(dongchon).getMaDN());
-                db.updateSinhVien(sv);
-                db.updateDoanhNGhiep(ds1.get(dongchon));
+                if (ds1.get(dongchon).getSVDangKy().size() + 1 > ds1.get(dongchon).getSoLuong()) {
+                    JOptionPane.showMessageDialog(rootPane, "Doanh Nghiệp đã đầy rồi", "Thông báo", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    ds.add(ds1.get(dongchon));
+                    ds1.get(dongchon).getSVDangKy().add(sv);
+                    sv.setMaDN(ds1.get(dongchon).getMaDN());
+                    db.updateSinhVien(sv);
+                    db.updateDoanhNGhiep(ds1.get(dongchon));
+                }
             }
-
             loadModel();
-           
+
         } else {
             JOptionPane.showMessageDialog(rootPane, "Đã đăng ký rồi", "Thông báo", JOptionPane.ERROR_MESSAGE);
         }
@@ -530,10 +531,10 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         if (ds.size() == 1) {
-           
-            for(DoanhNghiep dn : ds1){
-                if(dn.getMaDN().equals(sv.getMaDN())){
-                    
+
+            for (DoanhNghiep dn : ds1) {
+                if (dn.getMaDN().equals(sv.getMaDN())) {
+
                     dn.getSVDangKy().remove(sv);
                     sv.setMaDN("");
                     db.updateDoanhNGhiep(dn);
@@ -541,10 +542,10 @@ public class XemDoanhNghiepGUIuser extends javax.swing.JFrame {
                     break;
                 }
             }
-             ds.remove(0);
+            ds.remove(0);
         }
         loadModel();
-  
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btResetActionPerformed
